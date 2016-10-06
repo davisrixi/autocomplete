@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<!--[if lt IE 9]><script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+	<title>Автокомплит</title>
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+	<link href="css/style.css" rel="stylesheet">    
+    <script type="text/javascript" src="http://code.jquery.com/jquery-3.1.1.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js"></script>
+    <script type="text/javascript" src="js/scripts.js"></script>
+    <script type="text/javascript" src="js/filters.js"></script>
+</head>
+
+<body ng-app="acApp">
+
+<div class="wrapper">
+
+	<div class="content">
+        <span class="heading">Autocomplete sample</span>
+        
+        <div ng-controller="main">
+
+            <input type="text" name="input" ng-model="query" ng-click="onChange()" ng-change="onChange()">
+
+            <div class="dropdown">
+                <ul ng-repeat="(key, value) in response">
+                    <li class="item" ng-repeat="obj in value track by $index" ng-click='onClick($event)'>{{obj.MarcaModelo}}</li><!-- with iso2 = {{obj.iso2}} -->
+                </ul>
+            </div><!--dropdown-->
+     
+        </div> <!--main-controller-->
+        
+	</div><!-- .content -->
+
+</div><!-- .wrapper -->
+    
+</body>
+</html>
